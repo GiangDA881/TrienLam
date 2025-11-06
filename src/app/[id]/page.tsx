@@ -32,6 +32,19 @@ export default async function EraPage({ params }: PageProps) {
     notFound();
   }
 
+  // Thứ tự 4 thời kỳ chính
+  const orderedEraIds = [
+    'phong-kien',
+    'phap-thuoc',
+    'sau-cach-mang-thang-tam',
+    'thong-nhat-doi-moi',
+  ];
+  const idx = orderedEraIds.indexOf(id);
+  const prevId = idx > 0 ? orderedEraIds[idx - 1] : null;
+  const nextId = idx >= 0 && idx < orderedEraIds.length - 1 ? orderedEraIds[idx + 1] : null;
+  const prevEra = prevId ? findEraById(erasData, prevId) : null;
+  const nextEra = nextId ? findEraById(erasData, nextId) : null;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50">
       {/* Header */}
@@ -65,6 +78,49 @@ export default async function EraPage({ params }: PageProps) {
       </header>
 
       <main className="container mx-auto px-4 py-12">
+        {/* Nút điều hướng trái/phải theo thời kỳ */}
+        {prevEra && (
+          <div className="fixed left-4 top-1/2 -translate-y-1/2 z-30">
+            <Link
+              href={`/${prevEra.id}`}
+              className="group block relative"
+              aria-label={`Chúng ta đến ${prevEra.name} nhé!`}
+            >
+              <div className="w-12 h-12 rounded-full bg-white text-amber-800 shadow-lg ring-2 ring-amber-300 flex items-center justify-center hover:scale-110 transition-transform">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </div>
+              {/* Tooltip trái - hiện lập tức khi hover icon/link */}
+              <div className="pointer-events-none absolute left-14 top-1/2 -translate-y-1/2 whitespace-nowrap bg-amber-800 text-white text-base md:text-lg font-semibold px-4 py-2 rounded-xl shadow-xl ring-2 ring-amber-300 opacity-0 group-hover:opacity-100">
+                Chúng ta đến {prevEra.name} nhé!
+                <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-0 h-0 border-y-8 border-y-transparent border-r-8 border-r-amber-800"></div>
+              </div>
+            </Link>
+          </div>
+        )}
+
+        {nextEra && (
+          <div className="fixed right-4 top-1/2 -translate-y-1/2 z-30">
+            <Link
+              href={`/${nextEra.id}`}
+              className="group block relative"
+              aria-label={`Chúng ta đến ${nextEra.name} nhé!`}
+            >
+              <div className="w-12 h-12 rounded-full bg-white text-amber-800 shadow-lg ring-2 ring-amber-300 flex items-center justify-center hover:scale-110 transition-transform">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              {/* Tooltip phải - hiện lập tức khi hover icon/link */}
+              <div className="pointer-events-none absolute right-14 top-1/2 -translate-y-1/2 whitespace-nowrap bg-amber-800 text-white text-base md:text-lg font-semibold px-4 py-2 rounded-xl shadow-xl ring-2 ring-amber-300 opacity-0 group-hover:opacity-100">
+                Chúng ta đến {nextEra.name} nhé!
+                <div className="absolute -right-2 top-1/2 -translate-y-1/2 w-0 h-0 border-y-8 border-y-transparent border-l-8 border-l-amber-800"></div>
+              </div>
+            </Link>
+          </div>
+        )}
+
         <EraContent era={era} />
       </main>
 

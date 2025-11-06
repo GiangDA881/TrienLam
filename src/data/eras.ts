@@ -27,7 +27,7 @@ export const erasData: Era[] = [
     subEras: [
       {
         id: "nha-dinh",
-        name: "Nhà Đinh (970)", 
+        name: "Nhà Đinh (970)",
         description: "Triều đại đầu tiên của nhà nước phong kiến độc lập Việt Nam, do Đinh Bộ Lĩnh sáng lập. Đồng tiền đầu tiên 'Thái Bình Hưng Bảo' ra đời, khẳng định nền độc lập tự chủ.",
         images: [
           {
@@ -233,50 +233,84 @@ export const erasData: Era[] = [
       {
         id: "giai-doan-1945-1951",
         name: "Giai đoạn 1945–1951 (Giấy bạc Cụ Hồ)",
-        description: "Giấy bạc Việt Nam Dân chủ Cộng hòa – 'Giấy bạc Cụ Hồ', phát hành lần đầu 31/1/1946. In thủ công tại chiến khu. Mặt trước có chân dung Chủ tịch Hồ Chí Minh. Mục đích: Thay thế tiền Đông Dương, gây quỹ cho kháng chiến, tạo niềm tin vào nền tài chính độc lập.",
+        description: "Ngày phát hành đầu tiên: 31/1/1946.Cơ quan phát hành: Bộ Tài chính Việt Nam Dân chủ Cộng hòa. Tên gọi thường dùng: Giấy bạc Cụ Hồ (vì có in chân dung Chủ tịch Hồ Chí Minh). Chất liệu: Giấy, in thủ công tại chiến khu (chủ yếu là Việt Bắc). Mệnh giá: 1 đồng, 5 đồng, 10 đồng, 20 đồng, 50 đồng, 100 đồng. Mục đích: Thay thế tiền Đông Dương của Pháp, gây quỹ cho chính quyền kháng chiến, tạo niềm tin vào nền tài chính độc lập.",
         images: [
           {
-            id: "Giấy bạc 100 đồng (1946).jpg",
-            name: "Giấy bạc 100 đồng (1946)",
-            description: "Một trong những tờ giấy bạc đầu tiên của Việt Nam Dân chủ Cộng hòa."
+            "id": "Giấy bạc 1 đồng (1946).jpg",
+            "name": "Giấy bạc 1 đồng (1946)",
+            "description": "Phát hành năm 1946, là một trong những tờ bạc đầu tiên của nước Việt Nam Dân chủ Cộng hoà. Mặt trước in chân dung Hồ Chí Minh cùng dòng chữ “Việt Nam Dân chủ Cộng hoà” và mệnh giá “Một đồng”. Mặt sau là hoa văn trang trí dân tộc, thể hiện tinh thần tự lực và bản sắc dân tộc."
           },
           {
-            id: "Giấy bạc 5 đồng (1946).jpg",
-            name: "Giấy bạc 5 đồng (1946)",
-            description: "Tiền được in thủ công tại chiến khu, chất lượng giấy chưa cao."
+            "id": "Giấy bạc 5 đồng (1946).jpg",
+            "name": "Giấy bạc 5 đồng (1946)",
+            "description": "Phát hành năm 1946, mệnh giá 5 đồng trong loạt tiền đầu của Nhà nước cách mạng. Mặt trước in chân dung Hồ Chí Minh, dòng chữ “Việt Nam Dân chủ Cộng hoà” và mệnh giá “Năm đồng”. Mặt sau trang trí hoa văn truyền thống, biểu trưng cho tinh thần đoàn kết dân tộc."
+          },
+          {
+            "id": "Giấy bạc 10 đồng (1946).jpg",
+            "name": "Giấy bạc 10 đồng (1946)",
+            "description": "Phát hành năm 1946 (hoặc đầu giai đoạn 1947) trong hệ thống tiền tệ đầu tiên của Việt Nam. Mệnh giá 10 đồng. Mặt trước in chân dung Hồ Chí Minh và mệnh giá “Mười đồng”. Mặt sau được trang trí hoa văn dân tộc, biểu tượng của nền tài chính độc lập."
+          },
+          {
+            "id": "Giấy bạc 20 đồng (1946).jpg",
+            "name": "Giấy bạc 20 đồng (1946)",
+            "description": "Phát hành năm 1946, mệnh giá 20 đồng trong hệ tiền mới. Mặt trước in chân dung Hồ Chí Minh cùng mệnh giá “Hai mươi đồng” và dòng chữ “Việt Nam Dân chủ Cộng hoà”. Mặt sau là hoa văn trang trí dân tộc, thể hiện tinh thần tự cường của đất nước."
+          },
+          {
+            "id": "Giấy bạc 50 đồng (1946).jpg",
+            "name": "Giấy bạc 50 đồng (1946)",
+            "description": "Phát hành năm 1946, mệnh giá 50 đồng – một trong những mệnh giá lớn trong loạt tiền đầu. Mặt trước in chân dung Hồ Chí Minh và mệnh giá “Năm mươi đồng”, mặt sau với hoa văn trang trí dân tộc, thể hiện ý chí độc lập tài chính của Việt Nam."
+          },
+          {
+            "id": "Giấy bạc 100 đồng (1946).jpg",
+            "name": "Giấy bạc 100 đồng (1946)",
+            "description": "Phát hành năm 1946, mệnh giá 100 đồng – một trong những tờ quan trọng nhằm khẳng định chủ quyền tiền tệ non trẻ. Mặt trước in chân dung Hồ Chí Minh, dòng chữ “Việt Nam Dân chủ Cộng hoà” và mệnh giá “Một trăm đồng”. Mặt sau là hoa văn trang trí dân tộc, thể hiện tinh thần tự lực và bản sắc dân tộc."
           }
         ]
       },
       {
         id: "giai-doan-1951-1954",
         name: "Giai đoạn 1951-1954 (Ngân hàng Quốc gia VN)",
-        description: "Ngày 6/5/1951, Chủ tịch Hồ Chí Minh ký sắc lệnh thành lập Ngân hàng Quốc gia Việt Nam để phát hành tiền, huy động vốn. Chất liệu giấy tốt hơn, màu sắc đa dạng. Hình ảnh gồm Hồ Chí Minh, Quốc huy, công-nông-binh. Lưu hành ở vùng tự do kháng chiến.",
+        description: "Bối cảnh: Đến năm 1951, cuộc kháng chiến chống Pháp bước vào giai đoạn phát triển. Cần có một cơ quan tài chính – ngân hàng thống nhất, có chức năng phát hành tiền, huy động vốn và quản lý tài chính cho cả nước. Vì vậy, ngày 6/5/1951, Chủ tịch Hồ Chí Minh ký sắc lệnh thành lập Ngân hàng Quốc gia Việt Nam. Đặc điểm của tiền Ngân hàng Quốc gia Việt Nam (1951–1954): Cơ quan phát hành: Ngân hàng Quốc gia Việt Nam. Đơn vị tiền tệ: Đồng Việt Nam. Chất liệu: Giấy in kỹ hơn, màu sắc đa dạng hơn so với giai đoạn 1946. Các mệnh giá: 1 đồng, 5 đồng, 10 đồng, 20 đồng, 50 đồng, 100 đồng, 200 đồng, 500 đồng, 1000 đồng, 5000 đồng. Hình ảnh trên tiền: Hồ Chí Minh, Quốc huy, công nhân – nông dân – bộ đội, cảnh sản xuất, kháng chiến. Khu vực sử dụng: Chủ yếu lưu hành ở vùng tự do kháng chiến (miền Bắc), ở vùng tạm chiếm của Pháp vẫn dùng đồng Đông Dương. Kỹ thuật in: Một số bản in được thực hiện ở Trung Quốc do điều kiện kháng chiến. Màu sắc và chất lượng in cải thiện đáng kể so với giai đoạn đầu.",
         images: [
-          
           {
             id: "10 đồng (1951).jpg",
             name: "10 đồng (1951)",
-            description: "Tiền do Ngân hàng Quốc gia Việt Nam phát hành."
+            description: "Tờ tiền được in thủ công trong điều kiện chiến tranh, chủ yếu trên giấy thủ công hoặc giấy dó, với tông màu nâu đỏ hoặc xanh lam. Mặt trước in chân dung Chủ tịch Hồ Chí Minh cùng mệnh giá “Mười đồng”, biểu tượng cho niềm tin của nhân dân vào chính quyền cách mạng. Mặt sau trang trí hoa văn dân tộc và dòng chữ “Ngân hàng Quốc gia Việt Nam”."
           },
           {
             id: "20 đồng (1951).jpg",
             name: "20 đồng (1951)",
-            description: "Tiền do Ngân hàng Quốc gia Việt Nam phát hành."
+            description: "Mặt trước in chân dung Chủ tịch Hồ Chí Minh, mệnh giá “Hai mươi đồng”, cùng dòng chữ “Ngân hàng Quốc gia Việt Nam”. Mặt sau trang trí hoa văn truyền thống, biểu tượng cho tinh thần lao động và lòng yêu nước."
           },
           {
             id: "50 đồng (1951).jpg",
             name: "50 đồng (1951)",
-            description: "Tiền do Ngân hàng Quốc gia Việt Nam phát hành."
+            description: "Mặt trước in chân dung Chủ tịch Hồ Chí Minh cùng dòng chữ “Ngân hàng Quốc gia Việt Nam” và mệnh giá “Năm mươi đồng”. Mặt sau có hoa văn dân tộc hoặc hình ảnh biểu trưng cho công – nông – binh, thể hiện tinh thần đoàn kết toàn dân."
           },
           {
             id: "100 đồng (1951).jpg",
             name: "100 đồng (1951)",
-            description: "Tiền do Ngân hàng Quốc gia Việt Nam phát hành."
+            description: "Tờ tiền được in trên giấy thủ công, thiết kế mang gam màu đỏ hoặc tím, nổi bật với chân dung Chủ tịch Hồ Chí Minh ở mặt trước, cùng dòng chữ “Ngân hàng Quốc gia Việt Nam” và mệnh giá “Một trăm đồng”. Mặt sau trang trí hoa văn dân tộc hoặc hình ảnh sản xuất kháng chiến, tượng trưng cho tinh thần lao động và đoàn kết của nhân dân."
+          },
+          {
+            "id": "Giấy bạc 200 đồng (1951).jpg",
+            "name": "200 đồng (1951)",
+            "description": "Hai trăm đồng – mệnh giá lớn trong loạt tiền của Ngân hàng Quốc gia. Mặt trước in hình Hồ Chí Minh và hình bộ đội đang tập luyện; mệnh giá “Hai trăm đồng”. Mặt sau khắc hình người dân gánh thóc hoặc sản xuất, cùng dòng chữ “Ngân hàng Quốc gia Việt Nam”, biểu trưng cho đoàn kết lao động và ý chí kinh tế quốc gia."
           },
           {
             id: "500 đồng (1951).jpg",
             name: "500 đồng (1951)",
-            description: "Tiền do Ngân hàng Quốc gia Việt Nam phát hành."
+            description: "Mặt trước in chân dung Chủ tịch Hồ Chí Minh, mệnh giá “Năm trăm đồng” và dòng chữ “Ngân hàng Quốc gia Việt Nam”. Mặt sau trang trí hoa văn truyền thống hoặc hình ảnh công – nông – binh, biểu tượng cho sức mạnh đoàn kết dân tộc trong kháng chiến."
+          },
+          {
+            "id": "1000 đồng (1951).jpg",
+            "name": "1000 đồng (1951)",
+            "description": "Tờ tiền mệnh giá Một nghìn đồng phát hành năm 1951. Mặt trước in chân dung Hồ Chí Minh cùng dòng chữ “Việt Nam Dân chủ Cộng hòa” và mệnh giá “Một nghìn đồng”. Mặt sau là hình ảnh công – nông – binh đang làm nhiệm vụ, cùng dòng chữ “Ngân hàng Quốc gia Việt Nam”."
+          },
+          {
+            "id": "5000 đồng (1953).jpg",
+            "name": "5000 đồng (1953)",
+            "description": "Tờ tiền mệnh giá Năm nghìn đồng phát hành khoảng năm 1953. Mặt trước in chân dung Hồ Chí Minh và mệnh giá “Năm nghìn đồng”. Mặt sau in hình pháo cao xạ hoặc cảnh phòng không – biểu tượng kháng chiến – cùng dòng chữ “Ngân hàng Quốc gia Việt Nam”."
           }
         ]
       },
@@ -289,7 +323,7 @@ export const erasData: Era[] = [
             id: "mien-bac-1954-1975",
             name: "Miền Bắc (Việt Nam Dân chủ Cộng hòa)",
             description: "Cơ quan phát hành: Ngân hàng Quốc gia Việt Nam (sau 1960 là Ngân hàng Nhà nước Việt Nam). Lưu hành toàn miền Bắc. Hình ảnh: Chủ tịch Hồ Chí Minh, Quốc huy, cảnh sản xuất công – nông nghiệp, biểu trưng cho công cuộc xây dựng CNXH.",
-                images: [
+            images: [
               {
                 id: "Tờ 1 hào 1958.jpg",
                 name: "Tờ 1 hào (1958)",
@@ -361,7 +395,7 @@ export const erasData: Era[] = [
             id: "mien-nam-1955-1975",
             name: "Miền Nam (Việt Nam Cộng hòa)",
             description: "Tên tiền: Đồng Việt Nam (Đồng VNCH). Phát hành 22/9/1955, thay đồng Đông Dương. Cơ quan phát hành: Ngân hàng Quốc gia Việt Nam (Sài Gòn). In tại Mỹ, Anh, Nhật. Hình ảnh: Các nhân vật lịch sử (Ngô Quyền, Trần Hưng Đạo...), danh lam thắng cảnh (Chợ Bến Thành, cầu Trường Tiền...).",
-                images: [
+            images: [
               {
                 id: "tien-viet-nam-cong-hoa-2.jpg",
                 name: "Tiền Việt Nam Cộng hòa (mẫu 1)",
@@ -410,7 +444,7 @@ export const erasData: Era[] = [
             name: "Tờ 1 Đồng (1976)",
             description: "Tiền giấy mệnh giá 1 đồng phát hành năm 1976 trong giai đoạn chuyển tiếp sau thống nhất."
           },
-          
+
           {
             id: "Tờ 5 Đồng 1976.jpg",
             name: "Tờ 5 Đồng (1976)",
@@ -483,7 +517,7 @@ export const erasData: Era[] = [
             name: "Tờ 100 Đồng (1985)",
             description: "Tiền giấy mệnh giá 100 đồng phát hành trong cuộc cải cách 'Giá - Lương - Tiền' 1985."
           },
-          
+
           {
             id: "Tờ 500 Đồng 1985.jpg",
             name: "Tờ 500 Đồng (1985)",
@@ -585,3 +619,44 @@ function getAllImages(eras: Era[]): CurrencyImage[] {
 
 // Export mảng "phẳng" chứa tất cả các hình ảnh (Dùng cho "Dòng chảy tiền")
 export const allCurrencyImages: CurrencyImage[] = getAllImages(erasData);
+
+// Thông tin điều hướng mục tiêu cho mỗi ảnh
+export interface ImageTarget {
+  eraId: string;      // Trang era cần mở
+  sectionId?: string; // Anchor của sub-era (vd: section-phap-thuoc-1885-1906)
+}
+
+// Xây map từ imageId -> { eraId, sectionId }
+function buildImageIdToTargetMap(eras: Era[], currentEraId?: string, map?: Record<string, ImageTarget>) {
+  const targetMap = map ?? {};
+  for (const era of eras) {
+    const eraId = currentEraId ?? era.id;
+    // Ảnh trực tiếp thuộc era
+    if (era.images) {
+      for (const img of era.images) {
+        if (!targetMap[img.id]) {
+          targetMap[img.id] = { eraId: era.id };
+        }
+      }
+    }
+    // Ảnh trong subEras: sectionId là id của subEra
+    if (era.subEras) {
+      for (const sub of era.subEras) {
+        if (sub.images) {
+          for (const img of sub.images) {
+            if (!targetMap[img.id]) {
+              targetMap[img.id] = { eraId: era.id, sectionId: `section-${sub.id}` };
+            }
+          }
+        }
+        // Đệ quy xuống sâu hơn, nhưng vẫn giữ era gốc làm trang đích
+        if (sub.subEras) {
+          buildImageIdToTargetMap([sub], era.id, targetMap);
+        }
+      }
+    }
+  }
+  return targetMap;
+}
+
+export const imageIdToTarget: Record<string, ImageTarget> = buildImageIdToTargetMap(erasData);

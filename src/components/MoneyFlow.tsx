@@ -1,15 +1,17 @@
 'use client';
 
-import { allCurrencyImages } from '@/data/eras';
+import { allCurrencyImages, imageIdToTarget } from '@/data/eras';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function MoneyFlow() {
   // Nhân đôi mảng để tạo hiệu ứng vòng lặp liền mạch
   const duplicatedImages = [...allCurrencyImages, ...allCurrencyImages];
+  const router = useRouter();
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-r from-amber-50 via-amber-100 to-amber-50 py-12 mb-16">
-      <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5"></div>
+      <div className="absolute inset-0 bg-[url('/globe.svg')] opacity-5"></div>
       
       <div className="relative">
         <h2 className="text-3xl font-bold text-center mb-8 text-amber-900">
@@ -21,7 +23,14 @@ export default function MoneyFlow() {
             {duplicatedImages.map((image, index) => (
               <div
                 key={`${image.id}-${index}`}
-                className="flex-shrink-0 mx-4 group"
+                className="flex-shrink-0 mx-4 group cursor-pointer"
+                onClick={() => {
+                  const target = imageIdToTarget[image.id];
+                  if (target) {
+                    const hash = target.sectionId ?? `img-${encodeURIComponent(image.id)}`;
+                    router.push(`/${target.eraId}#${hash}`);
+                  }
+                }}
               >
                 <div className="relative w-48 h-48 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group-hover:scale-105 p-4 flex items-center justify-center">
                   <Image

@@ -20,7 +20,7 @@ function SubEraSection({ subEra, level = 1 }: { subEra: Era; level?: number }) {
     : "bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl shadow-lg p-6 mb-8 border border-amber-200";
 
   return (
-    <div className={containerClass}>
+    <div id={`section-${subEra.id}`} className={containerClass + " scroll-mt-28"}>
       {/* Badge cho thời kỳ con */}
       <div className="flex items-center gap-2 mb-4">
         <span className="inline-block px-3 py-1 bg-amber-500 text-white text-xs font-bold rounded-full">
@@ -65,7 +65,8 @@ function SubEraSection({ subEra, level = 1 }: { subEra: Era; level?: number }) {
             {subEra.images.map((image) => (
               <div 
                 key={image.id}
-                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-amber-300"
+                id={`img-${encodeURIComponent(image.id)}`}
+                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-amber-300 scroll-mt-28"
               >
                 <div className="relative h-64 bg-gradient-to-br from-amber-50 to-orange-50 p-4 flex items-center justify-center overflow-hidden">
                   <Image
@@ -98,7 +99,14 @@ function SubEraSection({ subEra, level = 1 }: { subEra: Era; level?: number }) {
 }
 
 export default function EraContent({ era }: EraContentProps) {
-  const { playAudio } = useAudio();
+  const { playAudio, isAudioEnabled, enableAudio } = useAudio();
+
+  // Đảm bảo bật audio nếu người dùng đã từng tắt modal chào mừng
+  useEffect(() => {
+    if (era.musicUrl && !isAudioEnabled) {
+      enableAudio();
+    }
+  }, [era.musicUrl, isAudioEnabled, enableAudio]);
 
   useEffect(() => {
     // Chỉ phát nhạc nếu era có musicUrl
@@ -111,7 +119,28 @@ export default function EraContent({ era }: EraContentProps) {
         clearTimeout(timer);
       };
     }
-  }, [era.musicUrl, playAudio]);
+  }, [era.musicUrl, playAudio, isAudioEnabled]);
+
+  useEffect(() => {
+    // Khi trang được mở với hash (từ Dòng chảy), cuộn mượt tới ảnh mục tiêu
+    if (typeof window === 'undefined') return;
+    const hash = window.location.hash;
+    if (!hash) return;
+    const id = hash.replace('#', '');
+
+    // Đợi DOM render đầy đủ rồi mới scroll
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Thêm hiệu ứng highlight ngắn để người dùng dễ nhận biết
+        el.classList.add('ring-4', 'ring-amber-400');
+        setTimeout(() => el.classList.remove('ring-4', 'ring-amber-400'), 1200);
+      }
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [era.id]);
 
   return (
     <>
@@ -135,7 +164,7 @@ export default function EraContent({ era }: EraContentProps) {
         <div>
           <div className="text-center mb-12">
             <h2 className="text-5xl font-bold text-amber-900 mb-4 inline-block relative">
-              Các Thời Kỳ Con
+              Các giai đoạn trong thời kỳ
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
             </h2>
           </div>
@@ -163,7 +192,8 @@ export default function EraContent({ era }: EraContentProps) {
             {era.images.map((image) => (
               <div 
                 key={image.id}
-                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-amber-300"
+                id={`img-${encodeURIComponent(image.id)}`}
+                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-amber-300 scroll-mt-28"
               >
                 <div className="relative h-64 bg-gradient-to-br from-amber-50 to-orange-50 p-4 flex items-center justify-center overflow-hidden">
                   <Image

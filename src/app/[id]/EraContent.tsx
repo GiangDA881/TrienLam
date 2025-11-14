@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useAudio } from '@/components/AudioContext';
 import { Era } from '@/data/eras';
+import ImageModal from '@/components/ImageModal';
 
 interface EraContentProps {
   era: Era;
@@ -11,6 +12,8 @@ interface EraContentProps {
 
 // Component đệ quy để hiển thị subEras
 function SubEraSection({ subEra, level = 1 }: { subEra: Era; level?: number }) {
+  const [selectedImage, setSelectedImage] = useState<{ id: string; name: string; description?: string } | null>(null);
+  
   const headingClass = level === 1 
     ? "text-3xl font-bold text-amber-800 mb-4" 
     : "text-2xl font-bold text-amber-700 mb-3 mt-6";
@@ -66,7 +69,8 @@ function SubEraSection({ subEra, level = 1 }: { subEra: Era; level?: number }) {
               <div 
                 key={image.id}
                 id={`img-${encodeURIComponent(image.id)}`}
-                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-amber-300 scroll-mt-28"
+                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-amber-300 scroll-mt-28 cursor-pointer"
+                onClick={() => setSelectedImage({ id: image.id, name: image.name, description: image.description })}
               >
                 <div className="relative h-64 bg-gradient-to-br from-amber-50 to-orange-50 p-4 flex items-center justify-center overflow-hidden">
                   <Image
@@ -78,6 +82,12 @@ function SubEraSection({ subEra, level = 1 }: { subEra: Era; level?: number }) {
                   />
                   {/* Overlay gradient khi hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Icon phóng to */}
+                  <div className="absolute top-2 right-2 bg-amber-500 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
                 </div>
                 <div className="p-5 bg-gradient-to-br from-white to-amber-50">
                   <h5 className="font-bold text-amber-900 mb-2 text-lg group-hover:text-amber-700 transition-colors">
@@ -94,12 +104,23 @@ function SubEraSection({ subEra, level = 1 }: { subEra: Era; level?: number }) {
           </div>
         </div>
       )}
+      
+      {/* Modal hiển thị ảnh */}
+      {selectedImage && (
+        <ImageModal
+          imageId={selectedImage.id}
+          imageName={selectedImage.name}
+          imageDescription={selectedImage.description}
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
     </div>
   );
 }
 
 export default function EraContent({ era }: EraContentProps) {
   const { playAudio, isAudioEnabled, enableAudio } = useAudio();
+  const [selectedImage, setSelectedImage] = useState<{ id: string; name: string; description?: string } | null>(null);
 
   // Đảm bảo bật audio nếu người dùng đã từng tắt modal chào mừng
   useEffect(() => {
@@ -193,7 +214,8 @@ export default function EraContent({ era }: EraContentProps) {
               <div 
                 key={image.id}
                 id={`img-${encodeURIComponent(image.id)}`}
-                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-amber-300 scroll-mt-28"
+                className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-amber-300 scroll-mt-28 cursor-pointer"
+                onClick={() => setSelectedImage({ id: image.id, name: image.name, description: image.description })}
               >
                 <div className="relative h-64 bg-gradient-to-br from-amber-50 to-orange-50 p-4 flex items-center justify-center overflow-hidden">
                   <Image
@@ -204,6 +226,12 @@ export default function EraContent({ era }: EraContentProps) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Icon phóng to */}
+                  <div className="absolute top-2 right-2 bg-amber-500 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
+                  </div>
                 </div>
                 <div className="p-5 bg-gradient-to-br from-white to-amber-50">
                   <h5 className="font-bold text-amber-900 mb-2 text-lg group-hover:text-amber-700 transition-colors">
@@ -219,6 +247,16 @@ export default function EraContent({ era }: EraContentProps) {
             ))}
           </div>
         </div>
+      )}
+      
+      {/* Modal hiển thị ảnh */}
+      {selectedImage && (
+        <ImageModal
+          imageId={selectedImage.id}
+          imageName={selectedImage.name}
+          imageDescription={selectedImage.description}
+          onClose={() => setSelectedImage(null)}
+        />
       )}
     </>
   );
